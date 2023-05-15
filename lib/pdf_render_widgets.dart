@@ -757,9 +757,6 @@ class PdfViewerParams {
   /// Scrolling direction.
   final Axis scrollDirection;
 
-  // See [InteractiveViewer] for more info.
-  final PanAxis panAxis;
-
   /// See [InteractiveViewer] for more info.
   final EdgeInsets boundaryMargin;
 
@@ -808,7 +805,6 @@ class PdfViewerParams {
       this.buildPageOverlay,
       this.pageDecoration,
       this.scrollDirection = Axis.vertical,
-      this.panAxis = PanAxis.free,
       this.boundaryMargin = EdgeInsets.zero,
       this.maxScale = 20,
       this.minScale = 0.1,
@@ -829,7 +825,6 @@ class PdfViewerParams {
     BuildPageContentFunc? buildPageOverlay,
     BoxDecoration? pageDecoration,
     Axis? scrollDirection,
-    PanAxis? panAxis,
     EdgeInsets? boundaryMargin,
     bool? panEnabled,
     bool? scaleEnabled,
@@ -848,7 +843,6 @@ class PdfViewerParams {
         buildPageOverlay: buildPageOverlay ?? this.buildPageOverlay,
         pageDecoration: pageDecoration ?? this.pageDecoration,
         scrollDirection: scrollDirection ?? this.scrollDirection,
-        panAxis: panAxis ?? this.panAxis,
         boundaryMargin: boundaryMargin ?? this.boundaryMargin,
         panEnabled: panEnabled ?? this.panEnabled,
         scaleEnabled: scaleEnabled ?? this.scaleEnabled,
@@ -873,7 +867,6 @@ class PdfViewerParams {
         other.buildPageOverlay == buildPageOverlay &&
         other.pageDecoration == pageDecoration &&
         other.scrollDirection == scrollDirection &&
-        other.panAxis == panAxis &&
         other.boundaryMargin == boundaryMargin &&
         other.panEnabled == panEnabled &&
         other.scaleEnabled == scaleEnabled &&
@@ -894,7 +887,6 @@ class PdfViewerParams {
         buildPageOverlay.hashCode ^
         pageDecoration.hashCode ^
         scrollDirection.hashCode ^
-        panAxis.hashCode ^
         boundaryMargin.hashCode ^
         panEnabled.hashCode ^
         scaleEnabled.hashCode ^
@@ -1176,7 +1168,6 @@ class PdfViewerState extends State<PdfViewer>
         return InteractiveViewer(
           transformationController: _controller,
           constrained: false,
-          panAxis: widget.params?.panAxis ?? PanAxis.free,
           boundaryMargin: widget.params?.boundaryMargin ?? EdgeInsets.zero,
           minScale: widget.params?.minScale ?? 0.8,
           maxScale: widget.params?.maxScale ?? 2.5,
