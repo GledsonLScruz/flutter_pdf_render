@@ -1176,8 +1176,6 @@ class PdfViewerState extends State<PdfViewer>
           onInteractionUpdate: widget.params?.onInteractionUpdate,
           panEnabled: widget.params?.panEnabled ?? true,
           scaleEnabled: widget.params?.scaleEnabled ?? true,
-          interactionEndFrictionCoefficient:
-              widget.params?.interactionEndFrictionCoefficient ?? 0.0000135,
           child: Stack(
             children: <Widget>[
               SizedBox(width: docSize.width, height: docSize.height),
