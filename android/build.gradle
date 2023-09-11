@@ -27,6 +27,8 @@ apply plugin: 'kotlin-android'
 android {
     compileSdkVersion 31
 
+    namespace 'jp.espresso3389.pdf_render'
+
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
     }
